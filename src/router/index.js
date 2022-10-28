@@ -1,24 +1,96 @@
-import { createRouter, createWebHashHistory } from 'vue-router'
-import HomeView from '../views/HomeView.vue'
+import {
+  createRouter,
+  createWebHistory
+} from 'vue-router'
+import Home from '../views/HomeView.vue'
 
-const routes = [
-  {
+const routes = [{
     path: '/',
-    name: 'home',
-    component: HomeView
+    name: 'Home',
+    component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
-  }
+    path: '/announcements',
+    name: 'Announcements',
+    component: () => import( /* webpackChunkName: "about" */ '../views/AnnouncementsView.vue')
+  },
+  {
+    path: '/single-announcement/:id',
+    name: 'singleAnnouncement',
+    component: () => import('../views/singleAnnouncement.vue')
+  },
+  {
+    path: '/MyAnnouncement',
+    name: 'MyAnnouncement',
+    component: () => import('../views/MyAnnouncement.vue')
+  },
+  {
+    path: '/PostAnnouncement',
+    name: 'PostAnnouncement',
+    component: () => import('../views/PostAnnouncement.vue')
+  },
+  {
+    path: '/Messages',
+    name: 'Messages',
+    component: () => import('../views/MessagesView.vue')
+  },
+  {
+    path: '/Login',
+    name: 'Login',
+    component: () => import('../views/LoginView.vue')
+  },
+  {
+    path: '/Registration',
+    name: 'Registration',
+    component: () => import('../views/RegistrationView.vue')
+  },
+  
+  {
+    path: '/User',
+    name: 'User',
+    component: () => import('../views/UserProfile.vue')
+  },
+  //footer routes
+  {
+    path: '/Contact',
+    name: 'Contact',
+    component: () => import('../views/ContactView.vue')
+  },
+  {
+    path: '/Contact/:id',
+    name: 'Contact-single',
+    component: () => import('../views/ContactView.vue'),
+    props: true
+  },
+  
+  {
+    path: '/Faq',
+    name: 'Faq',
+    component: () => import('../views/Faq.vue')
+  },
+
+  {
+    path: '/LegalNotice',
+    name: 'LegalNotice',
+    component: () => import('../views/LegalNotice.vue')
+  },
+
+  {
+    path: '/plan-du-site',
+    name: 'SiteMap',
+    component: () => import('../views/SiteMap.vue')
+  },
+
+  {
+    path: '/404',
+    name: '404',
+    component: () => import('../views/Error404.vue')
+  },
+
 ]
 
 const router = createRouter({
-  history: createWebHashHistory(),
+  history: createWebHistory(),
   routes
 })
 
